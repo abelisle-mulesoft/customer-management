@@ -1,0 +1,90 @@
+openapi: 3.0.2
+info:
+  title: Customer Management
+  description: |
+    Specifications of the legacy homegrown customer relationship management (CRM) microservice
+  contact:
+    name: Alan Belisle
+    email: abelisle@salesforce.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+tags:
+- name: customers
+  description: Operations about customers
+paths:
+  /customers:
+    post:
+      tags:
+      - customers
+      summary: Create customers
+      operationId: createCustomers
+      requestBody:
+        description: Customers to create
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Customer'
+      responses:
+        "201":
+          description: Customers created successfully
+components:
+  schemas:
+    Customer:
+      required:
+      - companyName
+      type: object
+      properties:
+        customerId:
+          type: string
+          description: Unique identifier for each customer
+        companyName:
+          type: string
+          description: Name of the company or customer
+        email:
+          type: string
+          description: Email address of the company or customer
+          format: email
+        phone:
+          type: string
+          description: Phone number of the company or customer
+        contactName:
+          type: string
+          description: Name of the primary contact person
+        addressLine1:
+          type: string
+          description: Primary address line
+        addressLine2:
+          type: string
+          description: Secondary address line (if needed)
+        city:
+          type: string
+          description: City
+        state:
+          type: string
+          description: State/Province
+        postalCode:
+          type: string
+          description: Postal/ZIP code
+        country:
+          type: string
+          description: Country
+        customerType:
+          type: string
+          description: Type of customer
+        isActive:
+          type: boolean
+          description: |
+            Indicates if the account is active (e.g., current customer) or inactive
+            (e.g., former customer)
+        createdAt:
+          type: string
+          description: Timestamp for when the customer record was created
+          format: date-time
+        updatedAt:
+          type: string
+          description: Timestamp for when the record was last updated
+          format: date-time
