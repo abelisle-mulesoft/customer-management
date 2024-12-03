@@ -2,35 +2,93 @@ openapi: 3.0.2
 info:
   title: Customer Management
   description: |
-    Specifications of the legacy homegrown customer management microservice
+    Specifications of the customer management microservice.
   contact:
     name: Alan Belisle
     email: abelisle@salesforce.com
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: 1.0.0
+  version: 1.1.0
 tags:
 - name: customers
   description: Operations about customers
 paths:
   /customers:
+    get:
+      tags:
+      - customers
+      summary: Retrieve all customer accounts
+      operationId: get-all-customers
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
     post:
       tags:
       - customers
-      summary: Create customers
-      operationId: createCustomers
+      summary: Create a new customer account
+      operationId: create-customer
       requestBody:
-        description: Customers to create
+        description: Customer account to create
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Customer'
+              $ref: '#/components/schemas/Customer'
       responses:
         "201":
-          description: Customers created successfully
+          description: Successful operation
+  "/customers/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: Customer's unique identifier
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - customers
+      summary: Retrieve customer account by id
+      operationId: get-customer-by-id
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+    put:
+      tags:
+        - customers
+      summary: Update customer by id
+      operationId: update-customer-by-id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+    delete:
+      tags:
+        - customers
+      summary: Delete customer by id
+      operationId: delete-customer-by-id
+      responses:
+        '200':
+          description: Successful operation
+
 components:
   schemas:
     Customer:
