@@ -28,7 +28,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Customer'
+                  $ref: "#/components/schemas/Customer"
     post:
       tags:
       - customers
@@ -39,7 +39,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Customer'
+              $ref: "#/components/schemas/Customer"
       responses:
         "201":
           description: Successful operation
@@ -47,7 +47,7 @@ paths:
     parameters:
     - name: id
       in: path
-      description: Customer's unique identifier
+      description: Customer"s unique identifier
       required: true
       schema:
         type: string
@@ -62,7 +62,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Customer'
+                $ref: "#/components/schemas/Customer"
     put:
       tags:
         - customers
@@ -72,21 +72,21 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Customer'
+              $ref: "#/components/schemas/Customer"
       responses:
-        '200':
+        "200":
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Customer'
+                $ref: "#/components/schemas/Customer"
     delete:
       tags:
         - customers
       summary: Delete customer by id
       operationId: delete-customer-by-id
       responses:
-        '200':
+        "200":
           description: Successful operation
 
 components:
