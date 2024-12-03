@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   title: Customer Management
   description: |
-    Specifications of the legacy homegrown customer relationship management (CRM) microservice
+    Specifications of the legacy homegrown customer management microservice
   contact:
     name: Alan Belisle
     email: abelisle@salesforce.com
