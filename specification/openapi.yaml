@@ -47,7 +47,7 @@ paths:
     parameters:
     - name: id
       in: path
-      description: Customer"s unique identifier
+      description: Customer's unique identifier
       required: true
       schema:
         type: string
