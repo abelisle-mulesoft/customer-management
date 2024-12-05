@@ -1,0 +1,23 @@
+#%Catalog Descriptor 1.0
+projects:
+  - main: specification/openapi.yaml
+    assetId: customer-management
+    version: 1.1.0
+    apiVersion: v1
+    contact:
+      name: Alan Belisle
+      email: abelisle@salesforce.com
+    documentation:
+      Home: specification/api-doc/Home.md
+      How to Consume: specification/api-doc/Consume.md
+      Security: specification/api-doc/Security.md
+      Environments and Testing: specification/api-doc/Environments.md
+      Getting Help: specification/api-doc/Help.md
+    tags:
+      - microservice
+      - dotcom
+    categories:
+      API Type:
+        - System API
+      Organization:
+        - Dotcom
